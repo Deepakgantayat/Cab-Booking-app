@@ -10,6 +10,7 @@ app.use(express.json())
 configureDB()
 app.use(cors())
 
+
 app.use('/',router)
 
 app.get('/', (req,res) => {
