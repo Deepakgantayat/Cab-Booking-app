@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../config/axios'
 import swal from 'sweetalert'
 
 export const setMulticities = (multicities) => {
@@ -10,7 +10,7 @@ export const setMulticities = (multicities) => {
 
 export const startSetMulticities = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3055/multicities', {
+        axios.get('/multicities', {
             headers: {
                 'x-auth':localStorage.getItem('authToken')
             }
@@ -35,7 +35,7 @@ export const addMulticity = (multicity) =>{
 
 export const startAddMulticity = (formData, props) => {
     return (dispatch) => {
-        axios.post('http://localhost:3055/multicities', formData,{
+        axios.post('/multicities', formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -66,7 +66,7 @@ export const editMulticity = (multicity) =>{
 
 export const startEditMulticity = (formData,props) => {
     return (dispatch) => {
-        axios.put(`http://localhost:3055/multicities/${props.match.params.id}`, formData,{
+        axios.put(`/multicities/${props.match.params.id}`, formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -97,7 +97,7 @@ export const removeMulticity = (id) => {
 export const startRemoveMulticity = (id) => {
     return (dispatch) => {
         //  dispatch(removeCustomer(id))//remove it before confirmation from server may cause propblem
-        axios.delete(`http://localhost:3055/multicities/${id}`, {
+        axios.delete(`/multicities/${id}`, {
             headers:{
                 'x-auth': localStorage.getItem('authToken')
             }

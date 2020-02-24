@@ -1,4 +1,5 @@
-import axios from 'axios'
+// import axios from 'axios'
+import axios from '../../config/axios'
 import swal from 'sweetalert'
 
 export const setOneway = (oneways) => {
@@ -10,7 +11,7 @@ export const setOneway = (oneways) => {
 
 export const startSetOneways = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3055/oneways', {
+        axios.get('/oneways', {
             headers: {
                 'x-auth':localStorage.getItem('authToken')
             }
@@ -35,7 +36,7 @@ export const addOneway = (oneway) =>{
 
 export const startAddOneway = (formData, props) => {
     return (dispatch) => {
-        axios.post('http://localhost:3055/oneways', formData,{
+        axios.post('/oneways', formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -66,7 +67,7 @@ export const editOneway = (oneway) =>{
 
 export const startEditOneway = (formData,props) => {
     return (dispatch) => {
-        axios.put(`http://localhost:3055/oneways/${props.match.params.id}`, formData,{
+        axios.put(`/oneways/${props.match.params.id}`, formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -97,7 +98,7 @@ export const removeOneway = (id) => {
 export const startRemoveOneway = (id) => {
     return (dispatch) => {
         //  dispatch(removeCustomer(id))//remove it before confirmation from server may cause propblem
-        axios.delete(`http://localhost:3055/oneways/${id}`, {
+        axios.delete(`/oneways/${id}`, {
             headers:{
                 'x-auth': localStorage.getItem('authToken')
             }

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../config/axios'
 import swal from 'sweetalert'
 
 export const setRoundtrips = (roundtrips) => {
@@ -10,7 +10,7 @@ export const setRoundtrips = (roundtrips) => {
 
 export const startSetRoundtrips = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3055/roundtrips', {
+        axios.get('/roundtrips', {
             headers: {
                 'x-auth':localStorage.getItem('authToken')
             }
@@ -35,7 +35,7 @@ export const addRoundtrip = (roundtrip) =>{
 
 export const startAddRoundtrip = (formData, props) => {
     return (dispatch) => {
-        axios.post('http://localhost:3055/roundtrips', formData,{
+        axios.post('/roundtrips', formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -66,7 +66,7 @@ export const editRoundtrip = (roundtrip) =>{
 
 export const startEditRoundtrip = (formData,props) => {
     return (dispatch) => {
-        axios.put(`http://localhost:3055/roundtrips/${props.match.params.id}`, formData,{
+        axios.put(`/roundtrips/${props.match.params.id}`, formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -97,7 +97,7 @@ export const removeRoundtrip = (id) => {
 export const startRemoveRoundtrip = (id) => {
     return (dispatch) => {
         //  dispatch(removeCustomer(id))//remove it before confirmation from server may cause propblem
-        axios.delete(`http://localhost:3055/roundtrips/${id}`, {
+        axios.delete(`/roundtrips/${id}`, {
             headers:{
                 'x-auth': localStorage.getItem('authToken')
             }

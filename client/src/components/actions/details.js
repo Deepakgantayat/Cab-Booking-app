@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../config/axios'
 import swal from 'sweetalert'
 
 export const setDetails = (details) => {
@@ -10,7 +10,7 @@ export const setDetails = (details) => {
 
 export const startSetDetails = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3055/details', {
+        axios.get('/details', {
             headers: {
                 'x-auth':localStorage.getItem('authToken')
             }
@@ -35,7 +35,7 @@ export const addDetail = (detail) =>{
 
 export const startAddDetail = (formData, props) => {
     return (dispatch) => {
-        axios.post('http://localhost:3055/details', formData,{
+        axios.post('/details', formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -66,7 +66,7 @@ export const editDetail = (detail) =>{
 
 export const startEditDetail = (formData,props) => {
     return (dispatch) => {
-        axios.put(`http://localhost:3055/details/${props.match.params.id}`, formData,{
+        axios.put(`/details/${props.match.params.id}`, formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -97,7 +97,7 @@ export const removeDetail = (id) => {
 export const startRemoveDetails = (id) => {
     return (dispatch) => {
         //  dispatch(removeCustomer(id))//remove it before confirmation from server may cause propblem
-        axios.delete(`http://localhost:3055/details/${id}`, {
+        axios.delete(`/details/${id}`, {
             headers:{
                 'x-auth': localStorage.getItem('authToken')
             }

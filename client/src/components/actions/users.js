@@ -1,5 +1,6 @@
 // import axios from "../../config/axios"
-import axios from 'axios'
+// import axios from 'axios'
+import axios from '../../config/axios'
 import swal from 'sweetalert'
 
 export const setUser = (user = {}) => {
@@ -11,7 +12,7 @@ export const setUser = (user = {}) => {
 
 export const startResgisterUser =(formData, props)=>{
     return (dispatch) => {
-        axios.post('http://localhost:3055/users/register', formData)
+        axios.post('/users/register', formData)
             .then((response) => {
                 const data =response.data
                 if(data.hasOwnProperty('errors')){
@@ -33,7 +34,7 @@ export const startResgisterUser =(formData, props)=>{
 
 export const startLoginUser = (formData, props) => {
     return (dispatch) => {
-        axios.post('http://localhost:3055/users/login', formData)
+        axios.post('/users/login', formData)
             .then((response) => {
                 swal(response.data)
                 if(!response.data.token){
@@ -45,7 +46,7 @@ export const startLoginUser = (formData, props) => {
                     localStorage.setItem('authToken', token)
                     swal('Succssfully logged in')
 
-                    Promise.all([axios.get('http://localhost:3055/users/account',{
+                    Promise.all([axios.get('/users/account',{
                         header: {
                             'x-auth' : token
                         }
@@ -79,7 +80,7 @@ export const startLoginUser = (formData, props) => {
 
 export const startGetUser = () =>{
     return(dispatch) =>{
-        axios.get('http://localhost:3055/users/account',{
+        axios.get('/users/account',{
             headers: {
                 'x-auth' : localStorage.getItem('authToken')
             }
@@ -93,7 +94,7 @@ export const startGetUser = () =>{
 
 export const startLogoutUser = () => {
     return (dispatch) => {
-        axios.delete('http://localhost:3055/users/logout', {
+        axios.delete('/users/logout', {
             headers: {
               'x-auth': localStorage.getItem('authToken')
             }

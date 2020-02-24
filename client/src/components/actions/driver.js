@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../config/axios'
 import swal from 'sweetalert'
 
 export const setDrivers = (drivers) => {
@@ -10,7 +10,7 @@ export const setDrivers = (drivers) => {
 
 export const startSetDrivers = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3055/drivers', {
+        axios.get('/drivers', {
             headers: {
                 'x-auth':localStorage.getItem('authToken')
             }
@@ -35,7 +35,7 @@ export const addDriver = (driver) =>{
 
 export const startAddDriver = (formData, props) => {
     return (dispatch) => {
-        axios.post('http://localhost:3055/drivers', formData,{
+        axios.post('/drivers', formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -66,7 +66,7 @@ export const editDriver = (driver) =>{
 
 export const startEditDriver = (formData,props) => {
     return (dispatch) => {
-        axios.put(`http://localhost:3055/drivers/${props.match.params.id}`, formData,{
+        axios.put(`/drivers/${props.match.params.id}`, formData,{
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -97,7 +97,7 @@ export const removeDriver = (id) => {
 export const startRemoveCar = (id) => {
     return (dispatch) => {
         //  dispatch(removeCustomer(id))//remove it before confirmation from server may cause propblem
-        axios.delete(`http://localhost:3055/driver/${id}`, {
+        axios.delete(`/driver/${id}`, {
             headers:{
                 'x-auth': localStorage.getItem('authToken')
             }
