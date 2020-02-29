@@ -51,7 +51,7 @@ function App(props) {
   return (
     <BrowserRouter>
     <div class="card bg-dark text-white">
-    <img class="card-img" src="https://ak2.picdn.net/shutterstock/videos/22791292/thumb/1.jpg" alt="Card image"/>
+    <img class="card-img" src="https://ak2.picdn.net/shutterstock/videos/22791292/thumb/1.jpg" alt="responsive image"/>
     <div class="card-img-overlay">
     <div className = "container-fluid">
     <nav className="navbar"> 
@@ -71,7 +71,7 @@ function App(props) {
           ): (
             <div className="nav justify-content-end">
               <li className="nav-item"><Link to = "/users/register" className="nav-link" style={{ color:"white"}}>Register</Link></li>
-              <li className="nav-item"><Link to = "/users/login" className="nav-link" style={{color:"whitw"}}>Login</Link></li>
+              <li className="nav-item"><Link to = "/users/login" className="nav-link" style={{color:"white"}}>Login</Link></li>
             </div>
              )
           }

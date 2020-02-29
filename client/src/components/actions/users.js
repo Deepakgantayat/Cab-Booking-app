@@ -1,5 +1,8 @@
-// import axios from "../../config/axios"
-// import axios from 'axios'
+import {setDrivers} from './driver'
+import {setCars} from './car'
+import {setOneway} from './oneway'
+import {setRoundtrips} from './roundtrip'
+import {setMulticities} from './multicity'
 import axios from '../../config/axios'
 import swal from 'sweetalert'
 
@@ -50,25 +53,41 @@ export const startLoginUser = (formData, props) => {
                         header: {
                             'x-auth' : token
                         }
-                    // // }), axios.get('/notes', {
-                    // //     headers: {
-                    // //         'x-auth' : token
-                    // //     }
-                    // // }),axios.get('/categories', {
-                    // //     headers: {
-                    // //         'x-auth' : token
-                    // //     }
-                    })])
+                    }), axios.get('/cars', {
+                        headers: {
+                            'x-auth' : token
+                        }
+                    }),axios.get('/drivers', {
+                        headers: {
+                            'x-auth' : token
+                        }
+                    }), axios.get('/oneways', {
+                        headers: {
+                            'x-auth' : token
+                        }
+                    }), axios.get('/roundtrips', {
+                        headers: {
+                            'x-auth' : token
+                        }
+                    }), axios.get('/multicities', {
+                        headers: {
+                            'x-auth' : token
+                        }
+                    })
+                ])
 
                     .then(values => {
-                        const [userResponse] = values  //, NotesResponse, CategoriesResponse
+                        const [userResponse, CarsResponse, DriversResponse, onewaysResponse, roundtripsResponse, multicitiesResponse] = values  //, NotesResponse, CategoriesResponse
                         dispatch(setUser(userResponse.data))
-                        // dispatch(setNotes(NotesResponse.data))
-                        // dispatch(setCategories(CategoriesResponse.data))
+                        dispatch(setCars(CarsResponse.data))
+                        dispatch(setDrivers(DriversResponse.data))
+                        dispatch(setOneway(onewaysResponse.data))
+                        dispatch(setRoundtrips(roundtripsResponse.data))
+                        dispatch(setMulticities(multicitiesResponse.data))
                         props.history.push('/')
                     })
-                    // this.props.history.push('/')
-                    // window.location.reload()
+                    this.props.history.push('/')
+                    window.location.reload()
 
                 }
             })

@@ -2,7 +2,7 @@ const Multicity = require('../modules/Multicity')
 
 module.exports.list = (req,res) => {
     const { user } = req 
-    Multicity.find({user: user._id}).populate('driver', ['name']).populate('car', ['model'])
+    Multicity.find({user: user._id}).populate('driver', ['name']).populate('car', ['model']).populate('details', ['name', 'email', 'phone'])
         .then((multicity) => {
             res.json(multicity)
         })
@@ -14,7 +14,7 @@ module.exports.list = (req,res) => {
 module.exports.show = (req,res) => {
     const id = req.params.id
     const { user } = req
-    Multicity.findOne({_id: id, user: user._id}).populate('driver', ['name']).populate('car', ['model'])
+    Multicity.findOne({_id: id, user: user._id}).populate('driver', ['name']).populate('car', ['model']).populate('details', ['name', 'email', 'phone'])
         .then((multicity) => {
             if(multicity){
                 res.json(multicity)
@@ -43,7 +43,7 @@ module.exports.create = (req,res) => {
 module.exports.update = (req,res) => {
     const id = req.params.id
     const { body, user } = req
-    Multicity.findOneAndUpdate({_id: id, user: user._id}, body, {new: true, runValidators: true}).populate('driver', ['name']).populate('car', ['model'])
+    Multicity.findOneAndUpdate({_id: id, user: user._id}, body, {new: true, runValidators: true}).populate('driver', ['name']).populate('car', ['model']).populate('details', ['name', 'email', 'phone'])
         .then((multicity) => {
             res.json(multicity)
         })

@@ -35,7 +35,7 @@ class Login extends React.Component{
                 <div className="col-md-6">
                     <br/>
                     <br/>
-                <img src=""  className="rounded mx-auto d-block"  alt="Responsive"></img>
+                {/* <img src=""  className="rounded mx-auto d-block"  alt="Responsive"></img> */}
                 </div>
                 <div className="col-md-6">
                     <br/>
@@ -53,7 +53,7 @@ class Login extends React.Component{
                     <input type = "password" value={this.state.password} onChange={this.handleChange} placeholder="Password" name="password" className="form-control"/>
                     <div style={{color:"red"}}>{this.state.passwordError}</div> 
                     </div>
-                    <input type ="submit" className="btn btn-success btn-lg btn-block"/>      
+                    <input type ="submit" className="btn btn-primary btn-lg btn-block"/>      
                 </form>
                 
                

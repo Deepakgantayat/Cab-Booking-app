@@ -72,7 +72,8 @@ export const startEditMulticity = (formData,props) => {
             }
         })
         .then((response) => {
-            if(response.data.hasOwnProperty('reason')){
+            console.log(response)
+            if(response.data.hasOwnProperty('name')){
                 swal("please provide data")//response.data.errors.message
             }
             else{

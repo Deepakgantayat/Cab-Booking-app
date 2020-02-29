@@ -45,6 +45,7 @@ class  RoundtripList extends React.Component{
                                         <CardText>Travel Date: {roundtrip.startdate} Return Date: {roundtrip.enddate}</CardText>
                                         <CardText>Prefered Vehicle: {roundtrip.car.model}</CardText>
                                         <CardText>Your Prefered Driver: {roundtrip.driver.name}</CardText>
+                                        <CardText>Booked For: {roundtrip.details.name}</CardText>
                                             {/* note.category ? note.category.name :'NA' */}
                                         <Container className="mt-3">
                                              <Row>

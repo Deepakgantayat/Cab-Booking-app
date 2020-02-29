@@ -33,9 +33,9 @@ class MulticityForm extends React.Component{
     }
     render(){
         console.log(this.props.cars)
-        return(
-            <div>
-           
+        const {car, driver, details} = this.state
+        return( 
+            <div>           
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                     <label> From </label>
@@ -55,8 +55,9 @@ class MulticityForm extends React.Component{
                     </div>
                     <div className="form-group">
                     <label>Car</label>
+                    {/* <input type="select" value={this.state.car} onChange={this.handleChange} name="car"/> */}
                     <select name="carId" onChange={this.handleChange} className="form-control">
-                        <option >Choose Your Car</option>
+                        <option>Choose Your Car</option>
                         {
                             this.props.cars.map(car=>{
                                 return <option key={car._id} value={car._id}>{car.model}</option>

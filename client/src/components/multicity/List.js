@@ -45,6 +45,7 @@ class  MulticityList extends React.Component{
                                         <CardText>Travel Date: {multicity.startdate} Return Date: {multicity.enddate}</CardText>
                                         <CardText>Prefered Vehicle: {multicity.car.model}</CardText>
                                         <CardText>Your Prefered Driver: {multicity.driver.name}</CardText>
+                                        <CardText>Ride Booked For: {multicity.details.name}</CardText>
                                             {/* note.category ? note.category.name :'NA' */}
                                         <Container className="mt-3">
                                              <Row>

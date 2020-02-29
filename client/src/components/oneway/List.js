@@ -2,13 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { startRemoveOneway } from '../actions/oneway'
-
+import _ from 'lodash'
 import {Row, Col,Container} from 'reactstrap'
 import {Card, CardTitle, CardText,Button} from 'reactstrap'
 import swal from 'sweetalert'
+import axios from '../../config/axios';
 
 class  OnewayList extends React.Component{
-
+    constructor(props){
+        super(props)
+        this.state = {
+            from : 'bangalore'
+        }
+    }
     handleDelete = (id) => {
         swal({
             title: "Are you sure you want to Delete?",
@@ -25,6 +31,13 @@ class  OnewayList extends React.Component{
             } 
           })
     }
+
+    findDirection = () => {
+        let city = this.state.from
+        let url = `https://www.google.com/maps/place/${city}`;
+        window.open(url);
+      }
+
     render(){
         console.log(this.props.oneways)
     return (
@@ -44,13 +57,17 @@ class  OnewayList extends React.Component{
                                         {/* oneway.body? oneway.body:'NA' */}
                                         <CardText>Prefered Vehicle: {oneway.car.model}</CardText>
                                         <CardText>Your Prefered Driver: {oneway.driver.name}</CardText>
+                                        <CardText>Ride Booked For: {oneway.details.name}</CardText>
                                             {/* note.category ? note.category.name :'NA' */}
                                         <Container className="mt-3">
                                              <Row>
-                                                 <Col md="6">
+                                                 <Col md="4">
                                                      <Link to={`/oneways/${oneway._id}`}><Button color="primary">edit</Button></Link>
                                                  </Col>
-                                                 <Col md="6">
+                                                 <Col md="4">
+                                                    <Button onClick={this.findDirection}>Map</Button>
+                                                 </Col>
+                                                 <Col md="4">
                                                      <Button color="danger" onClick={()=>{this.handleDelete(oneway._id)}}>remove</Button>
                                                  </Col>
                                              </Row>

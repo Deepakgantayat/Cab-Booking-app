@@ -2,7 +2,7 @@ const Roundtrip = require('../modules/Roundtrip')
 
 module.exports.list = (req,res) => {
     const { user } = req 
-    Roundtrip.find({user: user._id}).populate('driver', ['name']).populate('car', ['model'])
+    Roundtrip.find({user: user._id}).populate('driver', ['name']).populate('car', ['model']).populate('details', ['name', 'email', 'phone'])
         .then((roundtrip) => {
             res.json(roundtrip)
         })
@@ -14,7 +14,7 @@ module.exports.list = (req,res) => {
 module.exports.show = (req,res) => {
     const id = req.params.id
     const { user } = req
-    Roundtrip.findOne({_id: id, user: user._id}).populate('driver', ['name']).populate('car', ['model'])
+    Roundtrip.findOne({_id: id, user: user._id}).populate('driver', ['name']).populate('car', ['model']).populate('details', ['name', 'email', 'phone'])
         .then((roundtrip) => {
             if(roundtrip){
                 res.json(roundtrip)
@@ -43,7 +43,7 @@ module.exports.create = (req,res) => {
 module.exports.update = (req,res) => {
     const id = req.params.id
     const { body, user } = req
-    Roundtrip.findOneAndUpdate({_id: id, user: user._id}, body, {new: true, runValidators: true}).populate('driver', ['name']).populate('car', ['model'])
+    Roundtrip.findOneAndUpdate({_id: id, user: user._id}, body, {new: true, runValidators: true}).populate('driver', ['name']).populate('car', ['model']).populate('details', ['name', 'email', 'phone'])
         .then((roundtrip) => {
             if(roundtrip){
                 res.json(roundtrip)
