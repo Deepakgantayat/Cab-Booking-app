@@ -12,7 +12,7 @@ class  OnewayList extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            from : 'bangalore'
+
         }
     }
     handleDelete = (id) => {
@@ -31,13 +31,6 @@ class  OnewayList extends React.Component{
             } 
           })
     }
-
-    findDirection = () => {
-        let city = this.state.from
-        let url = `https://www.google.com/maps/place/${city}`;
-        window.open(url);
-      }
-
     render(){
         console.log(this.props.oneways)
     return (
@@ -61,13 +54,10 @@ class  OnewayList extends React.Component{
                                             {/* note.category ? note.category.name :'NA' */}
                                         <Container className="mt-3">
                                              <Row>
-                                                 <Col md="4">
+                                                 <Col md="5">
                                                      <Link to={`/oneways/${oneway._id}`}><Button color="primary">edit</Button></Link>
                                                  </Col>
-                                                 <Col md="4">
-                                                    <Button onClick={this.findDirection}>Map</Button>
-                                                 </Col>
-                                                 <Col md="4">
+                                                 <Col md="5">
                                                      <Button color="danger" onClick={()=>{this.handleDelete(oneway._id)}}>remove</Button>
                                                  </Col>
                                              </Row>

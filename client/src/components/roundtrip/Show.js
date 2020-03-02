@@ -2,12 +2,18 @@ import React from 'react'
 import {connect} from 'react-redux'
 import  _ from 'lodash'
 import {Link} from 'react-router-dom'
-import { Card, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, CardTitle, CardText, Row, Col, Button } from 'reactstrap';
 
  function RoundtripShow(props){
         console.log(props.note)
         const id= props.match.params.id
-        // const {name,email,mobile} = this.props.customer
+
+        const findDirection = () => {
+          let city = props.roundtrip.from
+          let url = `https://www.google.com/maps/place/${city}`;
+          window.open(url);
+        }
+
         return(
           <div className="row">
           <br/>
@@ -28,7 +34,8 @@ import { Card, CardTitle, CardText, Row, Col } from 'reactstrap';
                 <CardText>Your Driver - {props.roundtrip.driver.name}</CardText>
                 <CardText>Booked For - {props.roundtrip.details.name}</CardText>
                 <Link to = "/roundtrips" className="link"> Go To Bookings</Link><br/>
-                <Link to = {`/roundtrips/edit/${id}`} className="btn btn-primary"> Edit</Link>  
+                <Link to = {`/roundtrips/edit/${id}`} className="btn btn-primary"> Edit</Link><br/>
+                <Button onClick={findDirection}>Map</Button>  
               </Card>
             </Col>
           </Row>

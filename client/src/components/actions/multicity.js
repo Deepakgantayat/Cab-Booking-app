@@ -41,6 +41,7 @@ export const startAddMulticity = (formData, props) => {
             }
         })
         .then((response) => {
+            console.log("ccccc", response)
             if(response.data.hasOwnProperty('errors')){
                 swal("fill all the field")//response.data.errors.message
             }
@@ -48,7 +49,7 @@ export const startAddMulticity = (formData, props) => {
                 const multicity = response.data
                 dispatch(addMulticity(multicity))
                 props.history.push(`/multicities/${multicity._id}`)
-
+                window.location.reload()
             }
         })
         .catch((err) =>{
@@ -72,7 +73,7 @@ export const startEditMulticity = (formData,props) => {
             }
         })
         .then((response) => {
-            console.log(response)
+            console.log("ccccc",response)
             if(response.data.hasOwnProperty('name')){
                 swal("please provide data")//response.data.errors.message
             }
@@ -80,6 +81,7 @@ export const startEditMulticity = (formData,props) => {
                 const multicity = response.data
                 dispatch(editMulticity(multicity))
                 props.history.push(`/multicities/${multicity._id}`)
+                window.location.reload()
             }
         })
         .catch((err) =>{

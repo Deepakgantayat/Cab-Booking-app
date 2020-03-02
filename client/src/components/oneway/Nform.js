@@ -8,9 +8,9 @@ class OnewayForm extends React.Component{
             from: props.from ? props.from : '',
             to: props.to ? props.to: '',
             date: props.date ? props.date:'',
-            car:props.car?props.car:'',
-            driver:props.driver?props.driver:'',
-            details:props.details?props.details:'',
+            carId:props.car?props.car:'',
+            driverId:props.driver?props.driver:'',
+            detailsId:props.details?props.details:'',
         }
     }
     handleChange=(e) =>{
@@ -24,9 +24,9 @@ class OnewayForm extends React.Component{
             from: this.state.from,
             to: this.state.to,
             date:this.state.date,
-            car:this.state.car,
-            driver:this.state.driver,
-            details:this.state.details,
+            car:this.state.carId,
+            driver:this.state.driverId,
+            details:this.state.detailsId,
         }
         this.props.handleSubmit(formData)
     }

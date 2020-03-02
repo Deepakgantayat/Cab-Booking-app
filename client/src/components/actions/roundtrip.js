@@ -41,6 +41,7 @@ export const startAddRoundtrip = (formData, props) => {
             }
         })
         .then((response) => {
+            console.log("bbbbbb", response)
             if(response.data.hasOwnProperty('errors')){
                 swal("fill all the field")//response.data.errors.message
             }
@@ -48,7 +49,7 @@ export const startAddRoundtrip = (formData, props) => {
                 const roundtrip = response.data
                 dispatch(addRoundtrip(roundtrip))
                 props.history.push(`/roundtrips/${roundtrip._id}`)
-
+                window.location.reload()
             }
         })
         .catch((err) =>{
@@ -79,6 +80,7 @@ export const startEditRoundtrip = (formData,props) => {
                 const roundtrip = response.data
                 dispatch(editRoundtrip(roundtrip))
                 props.history.push(`/roundtrips/${roundtrip._id}`)
+                window.location.reload()
             }
         })
         .catch((err) =>{

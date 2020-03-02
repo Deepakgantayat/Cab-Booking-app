@@ -3,6 +3,7 @@ import {setCars} from './car'
 import {setOneway} from './oneway'
 import {setRoundtrips} from './roundtrip'
 import {setMulticities} from './multicity'
+import {setDetails} from './details'
 import axios from '../../config/axios'
 import swal from 'sweetalert'
 
@@ -73,17 +74,23 @@ export const startLoginUser = (formData, props) => {
                         headers: {
                             'x-auth' : token
                         }
+                    }),
+                    axios.get('/details', {
+                        headers: {
+                            'x-auth' : token
+                        }
                     })
                 ])
 
                     .then(values => {
-                        const [userResponse, CarsResponse, DriversResponse, onewaysResponse, roundtripsResponse, multicitiesResponse] = values  //, NotesResponse, CategoriesResponse
+                        const [userResponse, CarsResponse, DriversResponse, onewaysResponse, roundtripsResponse, multicitiesResponse,detailsResponse] = values  //, NotesResponse, CategoriesResponse
                         dispatch(setUser(userResponse.data))
                         dispatch(setCars(CarsResponse.data))
                         dispatch(setDrivers(DriversResponse.data))
                         dispatch(setOneway(onewaysResponse.data))
                         dispatch(setRoundtrips(roundtripsResponse.data))
                         dispatch(setMulticities(multicitiesResponse.data))
+                        dispatch(setDetails(detailsResponse.data))
                         props.history.push('/')
                     })
                     this.props.history.push('/')

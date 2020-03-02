@@ -9,9 +9,9 @@ class RoundtripForm extends React.Component{
             to: props.to ? props.to: '',
             startdate:props.startdate?props.startdate:'',
             enddate:props.enddate?props.enddate:'',
-            car:props.car?props.car:'',
-            driver:props.driver?props.driver:'',
-            details:props.details?props.details:'',
+            carId:props.car?props.car:'',
+            driverId:props.driver?props.driver:'',
+            detailsId:props.details?props.details:'',
         }
     }
     handleChange=(e) =>{
@@ -24,10 +24,11 @@ class RoundtripForm extends React.Component{
         const formData={
             from: this.state.from,
             to: this.state.to,
-            date:this.state.date,
-            car:this.state.car,
-            driver:this.state.driver,
-            details:this.state.details,
+            startdate:this.state.startdate,
+            enddate: this.state.enddate,
+            car:this.state.carId,
+            driver:this.state.driverId,
+            details:this.state.detailsId,
         }
         this.props.handleSubmit(formData)
     }

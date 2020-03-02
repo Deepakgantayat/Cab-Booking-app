@@ -7,7 +7,7 @@ import { Card, CardTitle, CardText, Row, Col, Button } from 'reactstrap';
  class  OnewayShow extends React.Component{
 
    findDirection = () => {
-    let city = this.props.from
+    let city = this.props.oneway.from
     let url = `https://www.google.com/maps/place/${city}`;
     window.open(url);
   }

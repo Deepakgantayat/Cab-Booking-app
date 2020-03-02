@@ -42,14 +42,15 @@ export const startAddOneway = (formData, props) => {
             }
         })
         .then((response) => {
-            if(response.data.hasOwnProperty('errors')){
+            console.log("aaaaaaaa", response)
+            if(response.data.hasOwnProperty('message')){
                 swal("fill all the field")//response.data.errors.message
             }
             else{
                 const oneway = response.data
                 dispatch(addOneway(oneway))
                 props.history.push(`/oneways/${oneway._id}`)
-
+                window.location.reload()
             }
         })
         .catch((err) =>{
@@ -80,6 +81,7 @@ export const startEditOneway = (formData,props) => {
                 const oneway = response.data
                 dispatch(editOneway(oneway))
                 props.history.push(`/oneways/${oneway._id}`)
+                window.location.reload()
             }
         })
         .catch((err) =>{
