@@ -10,6 +10,8 @@ import Login from './components/users/Login'
 import Account from './components/users/Account'
 
 import ContactList from './components/contact/List'
+import CarNew from './components/others/New'
+import DriverNew from './components/others/Dnew'
 
 import Nav from './components/oneway/Navbar'
 import OnewayList from './components/oneway/List'
@@ -85,6 +87,8 @@ function App(props) {
       <Route path = "/users/account" component = {Account}/>
 
       <Route path = "/details" component = {ContactList}/>
+      <Route path = "/deepak/add/cars" component = {CarNew}/>
+      <Route path = "/deepak/add/drivers" component = {DriverNew}/>
 
       {/* <Route path = "/navbar" component = {Nav}/> */}
       <Route path = "/oneways" component = {OnewayList} exact={true}/>
