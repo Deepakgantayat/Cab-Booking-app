@@ -8,6 +8,7 @@ const onewayController = require('../app/controllers/OnewayController')
 const roundtripController = require('../app/controllers/RoundtripController')
 const multicityController = require('../app/controllers/MulticityController')
 const detailsController = require('../app/controllers/DetailsController')
+const airportController = require('../app/controllers/AirportsController')
 
 const { authenticateUser } = require('../app/middlewares/authentication')
 // const {upload} = require('../app/middlewares/multer' )
@@ -53,5 +54,11 @@ router.get('/multicities/:id', authenticateUser, multicityController.show)
 router.post('/multicities', authenticateUser, multicityController.create)
 router.put('/multicities/:id', authenticateUser, multicityController.update)
 router.delete('/multicities/:id', authenticateUser, multicityController.destroy)
+
+router.get('/airports',authenticateUser, airportController.list)
+router.get('/airports/:id', authenticateUser, airportController.show)
+router.post('/airports', authenticateUser, airportController.create)
+router.put('/airports/:id', authenticateUser, airportController.update)
+router.delete('/airports/:id', authenticateUser, airportController.destroy)
 
 module.exports = router

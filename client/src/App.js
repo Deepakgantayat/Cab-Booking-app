@@ -29,6 +29,11 @@ import MulticityNew from './components/multicity/New'
 import MulticityShow from './components/multicity/Show'
 import MulticityEdit from './components/multicity/Edit'
 
+import AirportList from './components/airport/List'
+import AirportShow from './components/airport/Show'
+import AirportNew from './components/airport/New'
+import AirportEdit from './components/airport/Edit'
+
 import {startLogoutUser} from './components/actions/users'
 
 function App(props) {
@@ -105,6 +110,11 @@ function App(props) {
       <Route path = "/multicities/new" component = {MulticityNew} exact={true}/>
       <Route path = "/multicities/edit/:id" component = {MulticityEdit} exact={true}/>
       <Route path = "/multicities/:id" component = {MulticityShow} exact={true}/>
+
+      <Route path = "/airports" component = {AirportList} exact = {true}/>
+      <Route path = "/airports/new" component = {AirportNew} exact={true}/>
+      <Route path = "/airports/edit/:id" component = {AirportEdit} exact={true}/>
+      <Route path = "/airports/:id" component = {AirportShow} exact = {true}/>
    
       </Switch>
     </div>

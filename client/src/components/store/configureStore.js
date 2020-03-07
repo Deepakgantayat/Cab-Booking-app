@@ -8,6 +8,7 @@ import driverReducer from '../reducers/driver'
 import detailReducer from '../reducers/details'
 import roundtripReducer from '../reducers/roundtrip'
 import multicityReducer from '../reducers/multicity'
+import airportReducer from '../reducers/Airport'
 
 const configureStore = () => {
     const store = createStore(combineReducers({
@@ -17,7 +18,8 @@ const configureStore = () => {
         drivers: driverReducer,
         details: detailReducer,
         roundtrips : roundtripReducer,
-        multicities: multicityReducer
+        multicities: multicityReducer,
+        airports: airportReducer
     }), applyMiddleware(thunk))
     return store
 }

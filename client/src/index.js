@@ -15,6 +15,7 @@ import {startSetDrivers} from './components/actions/driver'
 import {startSetCars} from './components/actions/car'
 import {startSetRoundtrips} from './components/actions/roundtrip'
 import {startSetMulticities} from './components/actions/multicity'
+import {startSetAirports} from './components/actions/Airport'
 
 const store = configureStore()
 
@@ -34,6 +35,7 @@ if(localStorage.getItem('authToken')) {
     store.dispatch(startSetCars())
     store.dispatch(startSetRoundtrips())
     store.dispatch(startSetMulticities())
+    store.dispatch(startSetAirports())
 }
 const ele = (
 
