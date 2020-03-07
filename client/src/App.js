@@ -33,6 +33,7 @@ import AirportList from './components/airport/List'
 import AirportShow from './components/airport/Show'
 import AirportNew from './components/airport/New'
 import AirportEdit from './components/airport/Edit'
+import AirportConfirm from './components/airport/Confirm'
 
 import {startLogoutUser} from './components/actions/users'
 
@@ -113,6 +114,7 @@ function App(props) {
 
       <Route path = "/airports" component = {AirportList} exact = {true}/>
       <Route path = "/airports/new" component = {AirportNew} exact={true}/>
+      <Route path = "/airports/confirm/:id" component = {AirportConfirm} exact = {true}/>
       <Route path = "/airports/edit/:id" component = {AirportEdit} exact={true}/>
       <Route path = "/airports/:id" component = {AirportShow} exact = {true}/>
    

@@ -9,6 +9,7 @@ const roundtripController = require('../app/controllers/RoundtripController')
 const multicityController = require('../app/controllers/MulticityController')
 const detailsController = require('../app/controllers/DetailsController')
 const airportController = require('../app/controllers/AirportsController')
+// const distanceController = require('../app/controllers/DistanceController')
 
 const { authenticateUser } = require('../app/middlewares/authentication')
 // const {upload} = require('../app/middlewares/multer' )
@@ -60,5 +61,8 @@ router.get('/airports/:id', authenticateUser, airportController.show)
 router.post('/airports', authenticateUser, airportController.create)
 router.put('/airports/:id', authenticateUser, airportController.update)
 router.delete('/airports/:id', authenticateUser, airportController.destroy)
+
+
+// router.get('/getdistance',distanceController.distance)
 
 module.exports = router

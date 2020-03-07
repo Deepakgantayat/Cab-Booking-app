@@ -38,6 +38,7 @@ import { Card, CardTitle, CardText, Row, Col, Button } from 'reactstrap';
                   <CardText>Booked For - {this.props.airport.details.name}</CardText>
                   <Link to = "/airports" className="link"> Go To Bookings </Link><br/>
                   <Link to = {`/airports/edit/${id}`} className="btn btn-primary"> Edit</Link><br/>
+                  <Link to = {`/airports/confirm/${id}`} className="btn btn-success"> confirm</Link><br/>
                   <Button onClick={this.findDirection}>Map</Button>  
                 </Card>
               </Col>

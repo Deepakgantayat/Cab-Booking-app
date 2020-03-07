@@ -10,3 +10,18 @@
 //         })    
 
 // }
+
+// var distance = require('google-distance');
+
+// distance.get = (req, res) =>(
+//     // const body = req,
+//     {
+//       origin: req.body.origin,
+//       destination: req.body.destination
+//     },
+//     function(err, data) {
+//       if (err) return console.log(err);
+//       return res.json(data);
+//   });
+
+//   module.exports.distance
