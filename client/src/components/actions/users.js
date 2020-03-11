@@ -16,7 +16,7 @@ export const setUser = (user = {}) => {
 
 export const startResgisterUser =(formData, props)=>{
     return (dispatch) => {
-        axios.post('/users/register', formData)
+        axios.post('users/register', formData)
             .then((response) => {
                 const data =response.data
                 if(data.hasOwnProperty('errors')){
@@ -38,7 +38,7 @@ export const startResgisterUser =(formData, props)=>{
 
 export const startLoginUser = (formData, props) => {
     return (dispatch) => {
-        axios.post('/users/login', formData)
+        axios.post('users/login', formData)
             .then((response) => {
                 swal(response.data)
                 if(!response.data.token){
@@ -106,7 +106,7 @@ export const startLoginUser = (formData, props) => {
 
 export const startGetUser = () =>{
     return(dispatch) =>{
-        axios.get('/users/account',{
+        axios.get('users/account',{
             headers: {
                 'x-auth' : localStorage.getItem('authToken')
             }
@@ -120,7 +120,7 @@ export const startGetUser = () =>{
 
 export const startLogoutUser = () => {
     return (dispatch) => {
-        axios.delete('/users/logout', {
+        axios.delete('users/logout', {
             headers: {
               'x-auth': localStorage.getItem('authToken')
             }
