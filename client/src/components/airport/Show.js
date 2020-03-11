@@ -25,7 +25,7 @@ import { Card, CardTitle, CardText, Row, Col, Button } from 'reactstrap';
                   {
                       !_.isEmpty(this.props.airport) &&(
                         <div>
-                          <h2 className="text-light p-1 mb-2" style={{textAlign:"center"}}>Showing Your Oneway Trip On- {this.props.airport.date}</h2>
+                          <h2 className="text-light p-1 mb-2" style={{textAlign:"center"}}>Showing Your Airport Trip On- {this.props.airport.date}</h2>
               <Row>
               <Col sm="12">
                   <br/>
